@@ -11,7 +11,7 @@ import com.midterm.noteapp.screens.*
 @Composable
 fun NoteNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = NoteScreens.ForgetPasswordScreen.name){
+    NavHost(navController = navController, startDestination = NoteScreens.SplashScreen.name){
         composable(NoteScreens.SplashScreen.name ){
             NoteSplashScreen(navController = navController)
         }
