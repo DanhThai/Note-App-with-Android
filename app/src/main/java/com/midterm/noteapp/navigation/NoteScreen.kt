@@ -5,7 +5,10 @@ enum class NoteScreens {
     LoginScreen,
     SignupScreen,
     HomeScreen,
-    ForgetPasswordScreen;
+    ForgetPasswordScreen,
+    DetailScreen,
+    SettingScreen,
+    ChangePasswordScreen;
 
     companion object {
         fun noteRoute(route: String?):NoteScreens
@@ -16,6 +19,9 @@ enum class NoteScreens {
                 SignupScreen.name -> SignupScreen
                 HomeScreen.name -> HomeScreen
                 ForgetPasswordScreen.name -> ForgetPasswordScreen
+                DetailScreen.name -> DetailScreen
+                SettingScreen.name -> SettingScreen
+                ChangePasswordScreen.name -> ChangePasswordScreen
                 null -> HomeScreen
                 else -> throw IllegalArgumentException("Route $route is not recognized")
             }

@@ -31,5 +31,17 @@ fun NoteNavigation() {
         composable(NoteScreens.SignupScreen.name ){
             SignUpScreen(navController = navController)
         }
+
+        composable(NoteScreens.DetailScreen.name ){
+            DetailScreen(navController = navController)
+        }
+
+        composable(NoteScreens.SettingScreen.name ){
+            SettingScreen(navController = navController)
+        }
+
+        composable(NoteScreens.ChangePasswordScreen.name ){
+            ChangePasswordScreen(navController = navController)
+        }
     }
 }

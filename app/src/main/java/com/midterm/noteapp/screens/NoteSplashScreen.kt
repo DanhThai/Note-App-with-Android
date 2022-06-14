@@ -30,13 +30,13 @@ fun NoteSplashScreen(navController: NavHostController){
     val alphaAnim = animateFloatAsState(
         targetValue = if (startAnimation.value) 1f else 0f,
         animationSpec = tween(
-            durationMillis = 3000
+            durationMillis = 1000
         )
     )
 
     LaunchedEffect(key1  = true) {
         startAnimation.value = true
-        delay( 4000)
+        delay( 2000)
         navController.popBackStack()
         navController.navigate(NoteScreens.LoginScreen.name)
     }
