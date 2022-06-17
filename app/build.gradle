@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -46,10 +47,12 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.4'
+
     //Navigation
     def nav_version = "2.4.2"
     implementation "androidx.navigation:navigation-compose:$nav_version"
-
+    //
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"

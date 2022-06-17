@@ -1,4 +1,4 @@
-package com.midterm.noteapp.screens
+package com.midterm.noteapp.view
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -29,14 +29,13 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.midterm.noteapp.R
 import com.midterm.noteapp.navigation.NoteScreens
 import com.midterm.noteapp.ui.theme.PrimaryColor
 import com.midterm.noteapp.ui.theme.PrimaryDarkColor
-import com.midterm.noteapp.ui.theme.PrimaryLightColor
 
 @OptIn(ExperimentalComposeUiApi::class)
+
 @Composable
 fun LoginScreen(scrollableState: ScrollState = rememberScrollState(),
           navController: NavController

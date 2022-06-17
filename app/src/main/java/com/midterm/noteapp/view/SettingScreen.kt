@@ -1,4 +1,4 @@
-package com.midterm.noteapp.screens
+package com.midterm.noteapp.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*

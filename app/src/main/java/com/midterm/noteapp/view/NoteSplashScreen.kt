@@ -1,4 +1,4 @@
-package com.midterm.noteapp.screens
+package com.midterm.noteapp.view
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween

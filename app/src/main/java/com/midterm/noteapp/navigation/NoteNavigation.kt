@@ -5,7 +5,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.midterm.noteapp.screens.*
+import com.midterm.noteapp.view.*
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
