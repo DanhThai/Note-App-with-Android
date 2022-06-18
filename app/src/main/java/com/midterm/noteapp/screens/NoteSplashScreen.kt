@@ -55,7 +55,7 @@ fun Splash(alpha: Float) {
         Image(
             painter = painterResource(id = R.drawable.iconlogo),
             modifier = Modifier.size(150.dp),
-            contentDescription = "Logo Icon",
+            contentDescription = "Logo Icon",//
         )
     }
 }
