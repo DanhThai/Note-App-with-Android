@@ -1,5 +1,6 @@
 package com.midterm.noteapp.view
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -17,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -41,6 +43,7 @@ fun ChangePasswordScreen(navController: NavController){
     val textStatePasswordCallback = remember { mutableStateOf("") }
     val passwordVisible = remember { mutableStateOf(false) }
     val keyboardController = LocalSoftwareKeyboardController.current
+    val context = LocalContext.current
 
     Column(
         Modifier.padding(10.dp)
@@ -129,7 +132,7 @@ fun ChangePasswordScreen(navController: NavController){
             onValueChange = { textStatePassword.value = it },
             label = {
                 Text(
-                    "Mật khẩu",
+                    "Mật khẩu mới",
                     color = if (textStatePassword.value.isEmpty()) Color(
                         android.graphics.Color.rgb(
                             255,
@@ -241,9 +244,27 @@ fun ChangePasswordScreen(navController: NavController){
         )
 
         Button(onClick = {
-            navController.navigate(NoteScreens.SettingScreen.name){
-                popUpTo(NoteScreens.ChangePasswordScreen.name){
-                    inclusive = true
+            val passOld = textStateOldPassword.value
+            val s1 = textStatePassword.value
+            val s2 = textStatePasswordCallback.value
+            // ít nhất 1 Hoa, 1 thường, 1 số, 1 đặc biệt, ít nhất 8 kí tự
+            val patternPass = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@\$%^&*-]).{8,}\$".toRegex();
+            if (!patternPass.matches(s1))
+            {
+                Toast.makeText(context,"Phải có ít nhất 1 Hoa, 1 thường, 1 kí tự đặc biệt, 1 số, và ít nhất 8 kí tự", Toast.LENGTH_LONG).show();
+            }
+            else if (s1.compareTo(s2, ignoreCase = false) != 0)
+            {
+                Toast.makeText(context, "Password không trùng", Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                Toast.makeText(context, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                navController.navigate(NoteScreens.SettingScreen.name)
+                {
+                    popUpTo(NoteScreens.ChangePasswordScreen.name){
+                        inclusive = true
+                    }
                 }
             }
         },
